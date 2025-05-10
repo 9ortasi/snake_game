@@ -6,7 +6,7 @@ This project uses the raylib library.
 🔧 How to Build
 After downloading the project, simply run:
 
-$make
+>make
 in the cmd to compile the game.
 
 🐧 Linux Users
