@@ -1,12 +1,17 @@
-🐍 Snake Game (Raylib)
-This project uses the raylib library.
+# 🐍 Snake Game (Raylib)
 
-----------------------------------------------------------------------------------------------
+This project uses the [raylib](https://www.raylib.com/) library.
 
-🔧 How to Build
+---
+
+## 🔧 How to Build
+
 After downloading the project, simply run:
 
->make  \n
+```bash
+make
+
+
 in the cmd to compile the game.
 
 🐧 Linux Users
