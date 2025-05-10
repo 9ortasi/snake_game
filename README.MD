@@ -10,7 +10,7 @@ After downloading the project, simply run:
 
 ```bash
 make
-
+```
 
 in the cmd to compile the game.
 
