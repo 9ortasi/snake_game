@@ -1,5 +1,9 @@
 # 🐍 Snake Game (Raylib)
 
+
+![snake](https://github.com/user-attachments/assets/ad415eee-922c-45b3-b3c1-171bba2d9a44)
+
+
 This project uses the [raylib](https://www.raylib.com/) library.
 
 ---
