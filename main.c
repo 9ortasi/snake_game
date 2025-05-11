@@ -1,14 +1,15 @@
+
 #include "snake.h"
 #include <stdlib.h>
 
 int main()
 {
-    LoadResources();
     const int screenWidth = 800;
     const int screenHeight = 600;
 
     InitWindow(screenWidth, screenHeight, "snake game");
     SetTargetFPS(10);
+    LoadResources();
 
     Snake *my_snake;
     InitGame(&my_snake, screenWidth, screenHeight);
