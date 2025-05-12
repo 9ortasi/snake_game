@@ -20,6 +20,7 @@ int main()
         20, 20};
 
     bool lost = false;
+    // this is a comment
 
     while (!WindowShouldClose())
     {
