@@ -1,5 +1,6 @@
 #include "snake.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 void InitGame(Snake **snake, int screenWidth, int screenHeight)
 {
@@ -22,13 +23,13 @@ void ResetGame(Snake **snake, int screenWidth, int screenHeight)
 
 void HandleInput(Direction *direction)
 {
-    if (IsKeyPressed(KEY_UP) && *direction != DOWN)
+    if (IsKeyDown(KEY_UP) && *direction != DOWN)
         *direction = UP;
-    else if (IsKeyPressed(KEY_DOWN) && *direction != UP)
+    else if (IsKeyDown(KEY_DOWN) && *direction != UP)
         *direction = DOWN;
-    else if (IsKeyPressed(KEY_RIGHT) && *direction != LEFT)
+    else if (IsKeyDown(KEY_RIGHT) && *direction != LEFT)
         *direction = RIGHT;
-    else if (IsKeyPressed(KEY_LEFT) && *direction != RIGHT)
+    else if (IsKeyDown(KEY_LEFT) && *direction != RIGHT)
         *direction = LEFT;
 }
 
@@ -38,8 +39,29 @@ void UpdateGame(Snake **snake, Direction direction, Rectangle *loot, int screenW
     {
         PlaySound(assets.eat);
         AddSnakeNode(snake, direction);
-        loot->x = (GetRandomValue(0, (screenWidth - 20) / 20) * 20);
-        loot->y = (GetRandomValue(0, (screenHeight - 20) / 20) * 20);
+        int loot_x, loot_y;
+        // the loot should not be generated where the snake already is
+        bool legal_spawn = false;
+        Snake *ptr = *snake;
+        while (legal_spawn == false)
+        {
+            loot_x = (GetRandomValue(0, (screenWidth - 20) / 20) * 20);
+            loot_y = (GetRandomValue(0, (screenHeight - 20) / 20) * 20);
+            legal_spawn = true;
+            ptr = *snake;
+            while (ptr != NULL && legal_spawn == true)
+            {
+                if (ptr->snake_box.x == loot_x && ptr->snake_box.y == loot_y)
+                {
+                    legal_spawn = false;
+                    printf("collision happend");
+                }
+                ptr = ptr->next;
+            }
+        }
+
+        loot->x = loot_x;
+        loot->y = loot_y;
     }
     else
     {
