@@ -83,6 +83,7 @@ void DrawGame(Snake *snake, Rectangle loot, bool lost)
             score++;
             ptr = ptr->next;
         }
+        DrawRectangle(snake->snake_box.x + snake->snake_box.width / 4, snake->snake_box.y + snake->snake_box.height / 4, 10, 10, DARKBLUE);
         DrawText(TextFormat("SCORE: %d", (score - 1) * 10), 10, 10, 20, WHITE);
     }
 
